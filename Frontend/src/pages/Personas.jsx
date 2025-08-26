@@ -24,9 +24,9 @@ const Personas = () => {
       <h2 className="mb-3">Gestión de Personas</h2>
       <button
         className="btn btn-success mb-3"
-        onClick={() => navigate("/tipos/agregar")}
+        onClick={() => navigate("/personas/agregar")}
       >
-        Agregar Personas
+        Agregar Persona
       </button>
       <table className="table table-striped table-bordered">
         <thead className="table-dark">
@@ -46,13 +46,13 @@ const Personas = () => {
               <td>
                 <button
                   className="btn btn-primary btn-sm me-2"
-                  onClick={() => navigate(`/tipos/editar/${tipo.id}`)}
+                  onClick={() => navigate(`/personas/editar/${persona.idPersona}`)}
                 >
                   Modificar
                 </button>
                 <button
                   className="btn btn-danger btn-sm"
-                  onClick={() => navigate(`/tipos/eliminar/${tipo.id}`)}
+                  onClick={() => navigate(`/personas/eliminar/${persona.idPersona}`)}
                 >
                   Eliminar
                 </button>
