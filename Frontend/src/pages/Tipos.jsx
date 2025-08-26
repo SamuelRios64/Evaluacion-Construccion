@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/axiosConfig";
 
+// Página de Tipos
 const Tipos = () => {
+
+  // Estados
   const [tipos, setTipos] = useState([]);
   const navigate = useNavigate();
 
@@ -20,6 +23,9 @@ const Tipos = () => {
   }, []);
 
   return (
+
+    // Tabla de Tipos, con sus respectivos botones y registros
+
     <div className="container mt-4">
       <h2 className="mb-3">Gestión de Tipos</h2>
       <button

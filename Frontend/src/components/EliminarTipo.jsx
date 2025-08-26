@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../api/axiosConfig";
 
+// Eliminar un tipo
 const EliminarTipo = () => {
+
+    // Estados
   const { id } = useParams();
   const [cargo, setCargo] = useState("");
   const navigate = useNavigate();
 
+  // Carga de datos
   useEffect(() => {
     const fetchTipo = async () => {
       try {
@@ -19,6 +23,7 @@ const EliminarTipo = () => {
     fetchTipo();
   }, [id]);
 
+  // Envio peticion al Backend
   const handleDelete = async () => {
     try {
       await api.delete(`tipos/${id}`);
