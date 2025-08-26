@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-// htto://localhost:8080/garras/api/v1/tipos
+// Controlador para Tipos
 @RestController
 @RequestMapping("/tipos")
 @CrossOrigin(value = "http://localhost:5173")
@@ -38,7 +38,6 @@ public class TipoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminarTipo(@PathVariable Long id) {
-        tipoService.deleteTipo(id);
-        return new ResponseEntity<>("Tipo Eliminado con exito: " + id, HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(tipoService.deleteTipo(id),HttpStatus.OK);
     }
 }

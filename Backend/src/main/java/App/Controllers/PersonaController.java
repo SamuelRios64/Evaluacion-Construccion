@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+// Controlador de Personas
 @RestController
 @RequestMapping("/personas")
 @CrossOrigin(value = "http://localhost:5173")
@@ -32,12 +33,11 @@ public class PersonaController {
 
     @PutMapping
     public ResponseEntity<?> actualizarPersona(@RequestBody Persona persona) {
-        return new ResponseEntity<>(personaService.savePersona(persona), HttpStatus.CREATED);
+        return new ResponseEntity<>(personaService.savePersona(persona), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminarPersona(@PathVariable Long id) {
-
         return new ResponseEntity<>(personaService.deletePersona(id), HttpStatus.OK);
     }
 }

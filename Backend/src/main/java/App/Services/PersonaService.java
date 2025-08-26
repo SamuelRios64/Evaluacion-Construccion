@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// Servicio de Persona
 @Service
 public class PersonaService {
 
@@ -34,7 +35,6 @@ public class PersonaService {
     public ResponseDTO deletePersona(Long idPersona) {
 
         Persona personaEliminar = findByIdPersona(idPersona);
-
         Boolean usuarioConPersona = usuarioRepository.existsByIdPersona(personaEliminar);
 
         if(!usuarioConPersona) {
@@ -44,6 +44,5 @@ public class PersonaService {
         else {
             return new ResponseDTO("No se puede eliminar, usuario usando el ID " + idPersona, false);
         }
-
     }
 }
