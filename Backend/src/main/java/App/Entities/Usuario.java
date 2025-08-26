@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+// Entidad de Usuario
 @Entity
 @Data
 @AllArgsConstructor
@@ -14,15 +15,15 @@ public class Usuario {
     @Id
     private Long idUsuario;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "tipo",
-                nullable = false,
+                nullable = true,
                 foreignKey = @ForeignKey(name = "fk_usuario_tipo"))
     private Tipo idTipo;
     private String usuario;
     private String contraseña;
 
     @OneToOne
-    @JoinColumn(name = "idPersona")
+    @JoinColumn(name = "idPersona", nullable = false)
     private Persona idPersona;
 }
