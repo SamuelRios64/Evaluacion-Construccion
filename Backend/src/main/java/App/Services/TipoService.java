@@ -55,6 +55,13 @@ public class TipoService {
         return tipoRepository.save(tipo);
     }
 
+    public TipoDTO updateTipo(TipoDTO tipoDto) {
+
+        Tipo tipoGuardar = new Tipo(tipoDto.getIdTipo(), tipoDto.getNombre());
+        saveTipo(tipoGuardar);
+        return tipoDto;
+    }
+
     // Eliminar Tipo, siempre y cuando no esté referenciado o asociado a un Usuario
     public ResponseDTO deleteTipo(Long idTipo) {
         Tipo tipoEliminar = tipoRepository.findById(idTipo).orElse(null);

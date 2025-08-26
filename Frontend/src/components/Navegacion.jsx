@@ -16,6 +16,18 @@ const Navegacion = () => {
                     <li className="nav-item">
                       <Link to={`/`} className="nav-link" aria-current="page">Home</Link>
                     </li>
+                    <li className="nav-item">
+                      <Link to={`/tipos`} className="nav-link" aria-current="page">Tipos</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={`/personas`} className="nav-link" aria-current="page">Personas</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={`/usuarios`} className="nav-link" aria-current="page">Usuarios</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={`/login`} className="nav-link" aria-current="page">Logout </Link>
+                    </li>
                 </ul>
                 </div>
             </div>
