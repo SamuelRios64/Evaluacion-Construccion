@@ -2,6 +2,7 @@ package App.Controllers;
 
 import App.Entities.Tipo;
 import App.Services.TipoService;
+import App.dto.TipoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +33,8 @@ public class TipoController {
     }
 
     @PutMapping
-    public ResponseEntity<?> actualizarTipo(@RequestBody Tipo tipo) {
-        return new ResponseEntity<>(tipoService.saveTipo(tipo), HttpStatus.OK);
+    public ResponseEntity<?> actualizarTipo(@RequestBody TipoDTO tipo) {
+        return new ResponseEntity<>(tipoService.updateTipo(tipo), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
