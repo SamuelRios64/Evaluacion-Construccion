@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../api/axiosConfig";
 
+// Editar un tipo
 const EditarTipo = () => {
+  // Estados
   const { id } = useParams();
   const [cargo, setCargo] = useState("");
   const navigate = useNavigate();
 
+  // Carga de datos
   useEffect(() => {
     const fetchTipo = async () => {
       try {
@@ -19,10 +22,16 @@ const EditarTipo = () => {
     fetchTipo();
   }, [id]);
 
+  // Enviar forumulario
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.put(`/tipos`, { id, cargo } );
+      console.log("Datos a enviar: " + id + cargo);
+      const datos = {
+        idTipo: id,
+        nombre: cargo,
+      };
+      await api.put(`/tipos`, datos);
       navigate("/tipos");
     } catch (error) {
       console.error("Error al editar tipo:", error);
@@ -30,6 +39,7 @@ const EditarTipo = () => {
   };
 
   return (
+    // Formulario
     <div className="container mt-4">
       <h3>Editar Tipo</h3>
       <form onSubmit={handleSubmit}>
@@ -43,9 +53,19 @@ const EditarTipo = () => {
             required
           />
         </div>
-        <button className="btn btn-primary" type="submit">
-          Guardar Cambios
-        </button>
+
+        {/* Botones */}
+        <div className="container mt-4">
+          <button className="btn btn-success me-2" type="submit">
+            Guardar
+          </button>
+          <button
+            className="btn btn-secondary"
+            onClick={() => navigate("/tipos")}
+          >
+            Cancelar
+          </button>
+        </div>
       </form>
     </div>
   );

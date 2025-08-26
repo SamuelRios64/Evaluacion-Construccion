@@ -24,6 +24,7 @@ public class TipoService {
     @Autowired
     private TipoRepository tipoRepository;
 
+    // Repositorio de Usuarios
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -56,9 +57,8 @@ public class TipoService {
     }
 
     public TipoDTO updateTipo(TipoDTO tipoDto) {
-
         Tipo tipoGuardar = new Tipo(tipoDto.getIdTipo(), tipoDto.getNombre());
-        saveTipo(tipoGuardar);
+        tipoRepository.save(tipoGuardar);
         return tipoDto;
     }
 

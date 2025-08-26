@@ -30,8 +30,14 @@ const AgregarTipo = () => {
             required
           />
         </div>
-        <button className="btn btn-success" type="submit">
+        <button className="btn btn-success m-2" type="submit">
           Guardar
+        </button>
+        <button
+          className="btn btn-secondary"
+          onClick={() => navigate("/tipos")}
+        >
+          Cancelar
         </button>
       </form>
     </div>

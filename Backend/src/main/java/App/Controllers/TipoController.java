@@ -24,21 +24,25 @@ public class TipoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarTipoPorId(@PathVariable Long id) {
+        System.out.println("Tipo a buscar por ID: " + id);
         return new ResponseEntity<>(tipoService.findByIdTipo(id), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<?> guardarTipo(@RequestBody Tipo tipo) {
+        System.out.println("Tipo a guardar: " + tipo);
         return new ResponseEntity<>(tipoService.saveTipo(tipo), HttpStatus.CREATED);
     }
 
     @PutMapping
     public ResponseEntity<?> actualizarTipo(@RequestBody TipoDTO tipo) {
+        System.out.println("Tipo a actualizar: " + tipo);
         return new ResponseEntity<>(tipoService.updateTipo(tipo), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminarTipo(@PathVariable Long id) {
+        System.out.println("Tipo a eliminar: " + id);
         return new ResponseEntity<>(tipoService.deleteTipo(id),HttpStatus.OK);
     }
 }
